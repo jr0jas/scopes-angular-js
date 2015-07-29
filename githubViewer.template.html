@@ -1,0 +1,28 @@
+<div class="alert alert alert-danger" ng-show="githubViewerCtrl.error.length" role="alert">{{githubViewerCtrl.error}}</div>
+<div class="panel panel-default clearfix">
+  <div class="panel-heading">
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="search" name="Username" id="Username" class="form-control" placeholder="User to find on GitHub" ng-model="githubViewerCtrl.username">
+      </div>
+      <button type="submit" class="btn btn-default" ng-click="githubViewerCtrl.searchUser();">Search</button>
+    </form>
+  </div>
+  <div class="panel-body" id="user-details">
+    <div class="row">
+      <div class="col-xs-6">
+        <h4>{{githubViewerCtrl.user.name}}</h4>
+        <img ng-src="{{githubViewerCtrl.user.avatar_url}}" alt="{{githubViewerCtrl.user.name}}" class="img-thumbnail">
+      </div>
+      <div class="col-xs-6">
+        <h4 ng-show="githubViewerCtrl.repositories.length">Repositories:</h4>
+        <ol>
+          <li ng-repeat="repository in githubViewerCtrl.repositories track by repository.id">
+            <a href="{{repository.html_url}}" target="_blank">{{repository.name}}</a> 
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

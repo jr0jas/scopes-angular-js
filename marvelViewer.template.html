@@ -1,0 +1,20 @@
+<div class="marvel-characters">
+  <div class="alert alert alert-danger" ng-show="marvelViewerCtrl.error.length" role="alert">{{marvelViewerCtrl.error}}</div>
+  <button type="BUTTON" class="btn btn-default" ng-click="marvelViewerCtrl.getCharacters()">Get Characters</button>
+  <div class="marvel-characters-details">
+    <div class="page-header">
+      <h1>Characters <small>Marvel</small></h1>
+      <ul class="list-group">
+        <li ng-repeat="character in marvelViewerCtrl.characters track by character.id" class="list-group-item">
+          <div class="thumbnail">
+            <img src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}" alt="{{character.name}}">
+            <div class="caption">
+              <h3>{{character.name}}</h3>
+              <p>{{character.description}}</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
